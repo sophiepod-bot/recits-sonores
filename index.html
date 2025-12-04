@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" style="scroll-behavior: smooth; scroll-padding-top: 120px;">
+<html lang="fr" style="scroll-behavior: smooth;">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -90,6 +90,9 @@
       line-height: 1;
       white-space: nowrap;
       margin: 0;
+    }
+    html{
+      scroll-padding-top: 120px;
     }
     header{
       background: transparent;
@@ -443,7 +446,40 @@
       nav a:hover{
         background: rgba(255, 255, 255, 0.95);
       }
+      html{
+        scroll-padding-top: 85px;
+      }
       .scroll-header{
+        display: flex;
+        position: sticky;
+        top: 0;
+        opacity: 0;
+        transform: translateY(-10px);
+        background: var(--bg);
+        padding: 0;
+        z-index: 98;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        height: 80px;
+        border-bottom: 5px solid #1c375a;
+      }
+      .scroll-header.visible{
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .scroll-header-content{
+        margin-top: 0;
+        width: 100%;
+        padding: 0 16px;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+      .scroll-header h1{
+        font-size: 20px;
+        text-align: center;
+        margin: 0;
+      }
+      .scroll-header .sub{
         display: none;
       }
       .header-backdrop{
@@ -465,10 +501,10 @@
       .section-hero{
         order: 1;
       }
-      .section-ligne{
+      .section-sophie{
         order: 2;
       }
-      .section-sophie{
+      .section-ligne{
         order: 3;
       }
       #formats{
@@ -773,11 +809,11 @@
     <span></span>
   </button>
   <nav id="mainNav">
-    <a href="#top">Accueil</a>
     <a href="#sophie">Votre intervieweuse</a>
-    <a href="#formats">Formats proposés</a>
-    <a href="#process">Comment ça se passe ?</a>
-    <a href="#forfaits">Forfaits</a>
+    <a href="#ligne">Votre récit sonore</a>
+    <a href="#formats">Les formats</a>
+    <a href="#process">Les étapes</a>
+    <a href="#forfaits">Les forfaits</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -831,7 +867,7 @@
 
   <!-- FORMATS -->
   <section id="formats">
-    <h2>Formats proposés</h2>
+    <h2>Les formats proposés</h2>
     <div class="formats">
       <div class="formats-container">
         <div class="formats-carousel" id="formatsCarousel">
@@ -922,7 +958,7 @@
 
   <!-- FORFAITS -->
   <section id="forfaits" style="scroll-margin-top:5px;">
-    <h2>Forfaits</h2>
+    <h2>Les forfaits</h2>
     
     <p class="sub" style="font-size: clamp(14px, 1.4vw, 16px); line-height: 1.7; color: #5a5250;">Chaque audiographie est une création originale. Les tarifs ci-dessous sont indicatifs et varient selon le nombre d'épisodes, la complexité du montage et les besoins spécifiques <span style="color: var(--deep-blue); font-weight: 500;">(tarif journalier : 300€/jour)</span>.</p>
 
@@ -976,7 +1012,7 @@
 
     <div class="price-highlight" style="margin-top:16px;">
       <p style="font-size:15px; line-height:1.6; font-weight:500; margin-bottom:20px;">
-        Un devis personnalisé vous sera proposé dès notre premier échange, en fonction de votre projet et de vos besoins spécifiques.
+        Un devis personnalisé - adapté au projet et aux besoins spécifiques - sera établi dès notre premier échange.
       </p>
       
       <p style="margin-bottom:0; font-size:12px; color:var(--muted); font-style:italic;">
