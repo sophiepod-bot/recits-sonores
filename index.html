@@ -7,10 +7,10 @@
   <link rel="icon" type="image/png" href="assets/Audiographie sans fond.png" />
   <style>
     :root{
-      --bg: #fbf7f2;
+      --bg: #faf8f5;
       --card: #ffffff;
       --ink: #2c4a62;
-      --muted: #5a7a8c;
+      --muted: #6b7a8a;
       --accent: #e8a87c;
       --accent-2:#85dcb8;
       --accent-3:#c38d9e;
@@ -18,8 +18,9 @@
       --soft-peach: #f4d4c8;
       --warm-apricot: #e8a87c;
       --pale-yellow: #fef8e8;
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(0,0,0,.06);
+      --radius: 20px;
+      --shadow: 0 8px 24px rgba(28, 55, 90, 0.08), 0 2px 8px rgba(28, 55, 90, 0.04);
+      --shadow-hover: 0 12px 32px rgba(28, 55, 90, 0.12), 0 4px 12px rgba(28, 55, 90, 0.06);
       --maxw: 980px;
     }
     *{box-sizing:border-box}
@@ -77,11 +78,12 @@
     .scroll-header h1{
       margin: 0;
       font-size: clamp(16px, 2vw, 19px);
-      font-weight: 500;
-      font-family: system-ui, -apple-system, sans-serif;
+      font-weight: 440;
+      font-family: 'Playfair Display', Georgia, serif;
       color: #1c375a;
       line-height: 1;
       white-space: nowrap;
+      font-stretch: condensed;
     }
     .scroll-header .sub{
       font-size: clamp(12px, 1.1vw, 14px);
@@ -149,10 +151,11 @@
     .wrap{max-width:var(--maxw); margin:0 auto; padding:22px 18px 60px;}
     .hero{
       background:var(--card);
-      padding:40px 32px;
+      padding:48px 40px;
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       text-align:center;
+      transition: box-shadow 0.3s ease;
     }
     .hero-content{
       max-width: 700px;
@@ -162,15 +165,25 @@
       width:100%; height:340px; object-fit:cover; border-radius:14px;
     }
     h1{
-      margin:.2em 0;
-      font-size: clamp(32px, 4vw, 48px);
+      margin:.2em 0 .4em;
+      font-size: clamp(36px, 4.5vw, 52px);
       font-family: 'Playfair Display', Georgia, serif;
       font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
       color: #0d1f2d;
     }
-    h2{margin: 40px 0 28px; font-size: clamp(20px, 2.4vw, 26px); color: #0d1f2d;}
+    h2{
+      margin: 48px 0 32px; 
+      font-size: clamp(22px, 2.6vw, 30px); 
+      color: #0d1f2d;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-stretch: condensed;
+      scroll-margin-top: 1px;
+    }
     .sub{
       color:var(--muted);
       font-size: clamp(16px, 1.6vw, 19px);
@@ -178,13 +191,27 @@
       margin: 16px 0;
     }
     .cta{
-      display:inline-block; margin-top:10px; background:var(--accent); color:#111;
-      padding:10px 14px; border-radius:12px; text-decoration:none; font-weight:600;
-      box-shadow:0 6px 0 rgba(0,0,0,.08);
+      display:inline-block; margin-top:16px; background:var(--deep-blue); color:#fff;
+      padding:14px 28px; border-radius:12px; text-decoration:none; font-weight:600;
+      box-shadow:0 4px 12px rgba(28, 55, 90, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 16px;
+      letter-spacing: 0.01em;
+    }
+    .cta:hover{
+      background:#0f2540;
+      box-shadow:0 6px 20px rgba(28, 55, 90, 0.3);
+      transform: translateY(-2px);
     }
     .grid-2{display:grid; grid-template-columns: 1fr 1fr; gap:16px;}
     .card{
-      background:var(--card); padding:16px; border-radius:var(--radius); box-shadow:var(--shadow);
+      background:var(--card); padding:24px; border-radius:var(--radius); 
+      box-shadow:var(--shadow);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card:hover{
+      box-shadow:var(--shadow-hover);
+      transform: translateY(-2px);
     }
     .label{
       font-family: 'Playfair Display', Georgia, serif;
@@ -203,23 +230,27 @@
       justify-content:center;
     }
     .chip{
-      background:rgba(254, 248, 232, 0.8);
-      padding:8px 16px;
+      background:rgba(254, 248, 232, 0.6);
+      padding:10px 20px;
       border-radius:999px;
-      font-size:14px;
-      border: 1px solid rgba(232, 168, 124, 0.3);
-      transition: all 0.2s ease;
+      font-size:15px;
+      font-weight: 500;
+      border: 1.5px solid rgba(232, 168, 124, 0.25);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color: var(--ink);
     }
     .chip:hover{
-      background: rgba(232, 168, 124, 0.1);
+      background: rgba(232, 168, 124, 0.15);
       border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(232, 168, 124, 0.2);
     }
     .editorial{
-      display:grid; grid-template-columns: repeat(3,1fr); gap:12px;
+      display:grid; grid-template-columns: repeat(3,1fr); gap:20px;
     }
-    .editorial .card:nth-child(1){border-top:6px solid #1c375a}
-    .editorial .card:nth-child(2){border-top:6px solid #87CEEB}
-    .editorial .card:nth-child(3){border-top:6px solid #e8a87c}
+    .editorial .card:nth-child(1){border-top:4px solid #1c375a}
+    .editorial .card:nth-child(2){border-top:4px solid #87CEEB}
+    .editorial .card:nth-child(3){border-top:4px solid #e8a87c}
     .editorial-intro{
       font-family: 'Playfair Display', Georgia, serif;
       font-weight:600;
@@ -319,7 +350,12 @@
       color: #6a8599;
     }
     .audio{
-      background:var(--pale-yellow); padding:10px; border-radius:12px; font-size:14px; color:var(--muted);
+      background:rgba(254, 248, 232, 0.5); 
+      padding:14px 16px; 
+      border-radius:14px; 
+      font-size:14px; 
+      color:var(--muted);
+      border: 1px solid rgba(232, 168, 124, 0.15);
     }
     #process{
       padding:0 0 40px 0;
@@ -403,6 +439,15 @@
     @media(max-width:768px){
       .mobile-menu-toggle{
         display: block;
+        top: 8px;
+        right: 24px;
+        padding: 8px;
+        z-index: 101;
+      }
+      .mobile-menu-toggle span{
+        width: 22px;
+        height: 2px;
+        margin: 4px 0;
       }
       header{
         position: fixed;
@@ -412,22 +457,24 @@
         padding: 0;
         background: transparent;
         z-index: 99;
+        border-bottom: 2px solid #1c375a;
       }
       nav{
         position: fixed;
         top: 0;
-        left: 0;
+        left: auto;
         right: 0;
         bottom: 0;
-        background: rgba(240, 248, 255, 0.4);
+        width: 280px;
+        background: rgba(240, 248, 255, 0.95);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         flex-direction: column;
         padding: 80px 20px 20px;
         gap: 8px;
         border-radius: 0;
-        box-shadow: none;
-        transform: translateX(-100%);
+        box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+        transform: translateX(100%);
         transition: transform 0.3s ease;
         overflow-y: auto;
         visibility: hidden;
@@ -447,46 +494,46 @@
         background: rgba(255, 255, 255, 0.95);
       }
       html{
-        scroll-padding-top: 85px;
+        scroll-padding-top: 60px;
       }
       .scroll-header{
-        display: flex;
+        display: none;
+      }
+      h2{
         position: sticky;
         top: 0;
-        opacity: 0;
-        transform: translateY(-10px);
         background: var(--bg);
-        padding: 0;
         z-index: 98;
-        transition: opacity 0.4s ease, transform 0.4s ease;
-        height: 80px;
-        border-bottom: 5px solid #1c375a;
-      }
-      .scroll-header.visible{
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .scroll-header-content{
-        margin-top: 0;
-        width: 100%;
-        padding: 0 16px;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-      }
-      .scroll-header h1{
+        padding: 16px 20px;
+        padding-left: 145px;
+        margin: 24px 0;
         font-size: 20px;
-        text-align: center;
-        margin: 0;
+        border-bottom: none;
+        transition: border-bottom 0.3s ease;
       }
-      .scroll-header .sub{
-        display: none;
+      h2.is-sticky{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 3px solid #1c375a;
+        padding-left: 20px;
+      }
+      h2.is-sticky::before{
+        content: "Récits sonores";
+        font-size: 16px;
+        font-weight: 440;
+        color: var(--muted);
+        font-family: 'Playfair Display', Georgia, serif;
+        padding-right: 8px;
+        margin-right: 8px;
+        border-right: 2px solid var(--muted);
+        font-stretch: condensed;
       }
       .header-backdrop{
         display: none;
       }
       .wrap{
-        padding-top: 80px;
+        padding-top: 60px;
         padding-left: 16px;
         padding-right: 16px;
       }
@@ -500,6 +547,7 @@
       }
       .section-hero{
         order: 1;
+        display: none;
       }
       .section-sophie{
         order: 2;
@@ -518,6 +566,74 @@
       }
       #contact{
         order: 7;
+        text-align: center;
+      }
+      .hero-image-mobile{
+        display: block !important;
+        order: 1;
+        position: relative;
+        margin: 0 -16px 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
+        --border-scale: 0;
+      }
+      .hero-image-mobile::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: calc(3px * var(--border-scale));
+        background: #1c375a;
+        z-index: 10;
+        transform-origin: left;
+        transition: height 0.1s linear;
+      }
+      .hero-image-mobile img{
+        width: 100%;
+        height: 70vh;
+        object-fit: cover;
+        display: block;
+        border-radius: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.1s ease-out, border-radius 0.3s ease;
+      }
+      .hero-image-mobile .hero-overlay{
+        position: absolute;
+        bottom: 20vh;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        padding: 0 20px;
+        text-align: center;
+        z-index: 2;
+        transition: transform 0.1s ease-out;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        top: 40vh;
+      }
+      .hero-image-mobile h1{
+        color: var(--deep-blue);
+        font-size: clamp(24px, 6vw, 30px);
+        margin: 0;
+        font-weight: 600;
+      }
+      .hero-image-mobile .sub{
+        color: var(--ink);
+        font-size: clamp(15px, 4vw, 18px);
+        margin: 0;
+        line-height: 1.5;
+      }
+      .image-decorative-desktop{
+        display: none !important;
+      }
+      .section-hero{
+        display: none;
       }
       .hero{
         padding: 24px 20px;
@@ -530,10 +646,6 @@
       }
       h1{
         font-size: clamp(26px, 7vw, 34px);
-      }
-      h2{
-        font-size: 24px;
-        margin: 32px 0 20px;
       }
       .card p{
         font-size: 16px;
@@ -654,6 +766,10 @@
       .step:nth-child(2), .step:nth-child(4){
         margin-top:0;
       }
+      .mentions-legales{
+        order: 999;
+        padding: 20px 16px 30px !important;
+      }
     }
     table{
       width:100%; border-collapse:separate; border-spacing:0 8px; font-size:15px;
@@ -763,7 +879,18 @@
     @media (max-width: 900px){
       .hero{grid-template-columns:1fr;}
       .grid-2{grid-template-columns:1fr;}
-      .editorial{grid-template-columns:1fr;}
+      .editorial{
+        grid-template-columns:1fr;
+        gap: 12px;
+      }
+      .editorial .card{
+        padding: 16px;
+        font-size: 14px;
+      }
+      .editorial-intro{
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
       .formats{grid-template-columns:1fr;}
       .formats-container{
         padding: 0;
@@ -911,6 +1038,18 @@
     </div>
   </section>
 
+  <!-- IMAGE DECORATIVE -->
+  <div class="hero-image-mobile" style="display:none;">
+    <img src="assets/Designer.png" alt="Design illustration">
+    <div class="hero-overlay">
+      <h1>Récits sonores</h1>
+      <p class="sub">Des podcasts sur mesure racontant votre histoire et celle de vos proches.</p>
+    </div>
+  </div>
+  <div class="image-decorative-desktop" style="max-width:var(--maxw); margin:48px auto; padding:0 18px;">
+    <img src="assets/Designer.png" alt="Design illustration" style="width:100%; max-width:650px; height:auto; border-radius:20px; box-shadow:var(--shadow); display:block; margin:0 auto;">
+  </div>
+
   <!-- PROCESS -->
   <section id="process">
     <h2>Comment ça se passe ?</h2>
@@ -930,7 +1069,7 @@
               <div class="step-num">3</div>
               <div class="label">Création de vos épisodes sur mesure</div>
             </div>
-            <p> Les interviews sont transformés en un ou plusieurs épisodes de 20 à 40 minutes chacun. <br> Chaque épisode est narré, rythmé, accompagné d'un habillage sonore.<br> Vous recevrez également les enregistrements bruts non édités.</p> 
+            <p> Les interviews sont transformés en un ou plusieurs épisodes de 20 à 40 minutes chacun. <br> Chaque épisode est narré, rythmé, accompagné d'un habillage sonore.</p> 
           </div>
         </div>
 
@@ -952,6 +1091,9 @@
           </div>
         </div>
       </div>
+      <p style="margin-top:32px; padding:20px; background:rgba(254, 248, 232, 0.5); border-left:4px solid var(--deep-blue); border-radius:12px; font-size:15px; line-height:1.7; color:var(--ink); max-width:800px; margin-left:0; text-align:left;">
+        <strong style="color:var(--deep-blue);">Note :</strong> Vous recevrez également les enregistrements bruts non édités.
+      </p>
     </div>
   </section>
 
@@ -960,7 +1102,7 @@
   <section id="forfaits" style="scroll-margin-top:5px;">
     <h2>Les forfaits</h2>
     
-    <p class="sub" style="font-size: clamp(14px, 1.4vw, 16px); line-height: 1.7; color: #5a5250;">Chaque audiographie est une création originale. Les tarifs ci-dessous sont indicatifs et varient selon le nombre d'épisodes, la complexité du montage et les besoins spécifiques <span style="color: var(--deep-blue); font-weight: 500;">(tarif journalier : 300€/jour)</span>.</p>
+    <p class="sub" style="font-size: clamp(14px, 1.4vw, 16px); line-height: 1.7; color: #5a5250;">Chaque audiographie est une création originale.<br> Les tarifs ci-dessous sont indicatifs et varient selon le nombre d'épisodes, la complexité du montage et les besoins spécifiques <span style="color: var(--deep-blue); font-weight: 500;">(tarif journalier : 300€/jour)</span>.</p>
 
     <div class="pricing-grid">
       
@@ -1024,14 +1166,54 @@
 <!-- CONTACT -->
   <section id="contact">
     <footer>
-      <p>Ecrivez-moi sur WhatsApp ou par mail en me racontant votre projet et vos envies. Je répondrai à vos questions, vous transmettrai un devis et les infos sur les prochaines étapes !</p>
-      <p><strong>Sophie Hasson</strong><br>
-        <a href="tel:+33670912191" style="color:var(--deep-blue); text-decoration:none;">06.70.91.21.91</a><br>
-        <a href="mailto:soph.hasson@gmail.com?subject=Récits%20sonores" style="color:var(--deep-blue); text-decoration:none;">soph.hasson@gmail.com</a>
-      </p>
-      <img src="assets/Audiographies récits sonores.png" alt="Audiographies Récits sonores" style="width:150px; border-radius:12px; border:4px solid #1c375a; display:block; margin:24px auto 0;">
+      <h2 style="margin-top:0;">Contactez-moi</h2>
+      <p style="margin-bottom:32px; font-size:16px; line-height:1.7; color:var(--muted);">Racontez-moi votre projet et vos envies. Je répondrai à vos questions, vous transmettrai un devis et les infos sur les prochaines étapes !</p>
+      
+      <form action="https://formspree.io/f/xldqljno" method="POST" style="max-width:600px; margin:0 auto; text-align:left;">
+        <div style="margin-bottom:20px;">
+          <label for="prenom" style="display:block; margin-bottom:8px; font-weight:500; color:var(--deep-blue); font-size:15px;">Prénom *</label>
+          <input type="text" id="prenom" name="prenom" required style="width:100%; padding:14px 16px; border:2px solid rgba(28, 55, 90, 0.15); border-radius:10px; font-size:15px; font-family:inherit; transition:all 0.3s ease;" onfocus="this.style.borderColor='var(--deep-blue)'; this.style.boxShadow='0 0 0 3px rgba(28, 55, 90, 0.08)'" onblur="this.style.borderColor='rgba(28, 55, 90, 0.15)'; this.style.boxShadow='none'">
+        </div>
+        
+        <div style="margin-bottom:20px;">
+          <label for="nom" style="display:block; margin-bottom:8px; font-weight:500; color:var(--deep-blue); font-size:15px;">Nom *</label>
+          <input type="text" id="nom" name="nom" required style="width:100%; padding:14px 16px; border:2px solid rgba(28, 55, 90, 0.15); border-radius:10px; font-size:15px; font-family:inherit; transition:all 0.3s ease;" onfocus="this.style.borderColor='var(--deep-blue)'; this.style.boxShadow='0 0 0 3px rgba(28, 55, 90, 0.08)'" onblur="this.style.borderColor='rgba(28, 55, 90, 0.15)'; this.style.boxShadow='none'">
+        </div>
+        
+        <div style="margin-bottom:20px;">
+          <label for="email" style="display:block; margin-bottom:8px; font-weight:500; color:var(--deep-blue); font-size:15px;">Email *</label>
+          <input type="email" id="email" name="email" required style="width:100%; padding:14px 16px; border:2px solid rgba(28, 55, 90, 0.15); border-radius:10px; font-size:15px; font-family:inherit; transition:all 0.3s ease;" onfocus="this.style.borderColor='var(--deep-blue)'; this.style.boxShadow='0 0 0 3px rgba(28, 55, 90, 0.08)'" onblur="this.style.borderColor='rgba(28, 55, 90, 0.15)'; this.style.boxShadow='none'">
+        </div>
+        
+        <div style="margin-bottom:20px;">
+          <label for="telephone" style="display:block; margin-bottom:8px; font-weight:500; color:var(--deep-blue); font-size:15px;">Numéro de téléphone</label>
+          <input type="tel" id="telephone" name="telephone" style="width:100%; padding:14px 16px; border:2px solid rgba(28, 55, 90, 0.15); border-radius:10px; font-size:15px; font-family:inherit; transition:all 0.3s ease;" onfocus="this.style.borderColor='var(--deep-blue)'; this.style.boxShadow='0 0 0 3px rgba(28, 55, 90, 0.08)'" onblur="this.style.borderColor='rgba(28, 55, 90, 0.15)'; this.style.boxShadow='none'">
+        </div>
+        
+        <div style="margin-bottom:24px;">
+          <label for="projet" style="display:block; margin-bottom:8px; font-weight:500; color:var(--deep-blue); font-size:15px;">Votre projet *</label>
+          <textarea id="projet" name="projet" required rows="5" style="width:100%; padding:14px 16px; border:2px solid rgba(28, 55, 90, 0.15); border-radius:10px; font-size:15px; font-family:inherit; resize:vertical; transition:all 0.3s ease;" placeholder="Décrivez-moi votre projet..." onfocus="this.style.borderColor='var(--deep-blue)'; this.style.boxShadow='0 0 0 3px rgba(28, 55, 90, 0.08)'" onblur="this.style.borderColor='rgba(28, 55, 90, 0.15)'; this.style.boxShadow='none'"></textarea>
+        </div>
+        
+        <button type="submit" style="width:100%; padding:16px; background:var(--deep-blue); color:white; border:none; border-radius:10px; font-size:16px; font-weight:600; cursor:pointer; transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow:0 4px 12px rgba(28, 55, 90, 0.2);" onmouseover="this.style.background='#0f2540'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(28, 55, 90, 0.3)'" onmouseout="this.style.background='var(--deep-blue)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(28, 55, 90, 0.2)'">
+          Envoyer
+        </button>
+      </form>
     </footer>
   </section>
+
+  <!-- Mentions légales en dehors du cadre -->
+  <div class="mentions-legales" style="display:flex; justify-content:center; align-items:flex-start; gap:20px; padding:40px 20px; max-width:500px; margin:0 auto;">
+    <img src="assets/Audiographies récits sonores.png" alt="Audiographies Récits sonores" style="width:100px; border-radius:8px; border:3px solid #1c375a; flex-shrink:0;">
+    <div style="text-align:left;">
+      <h3 style="font-size:14px; margin-bottom:8px; color:var(--deep-blue);">Mentions légales</h3>
+      <p style="font-size:12px; color:var(--muted); line-height:1.5; margin:0;">
+        Site édité par Sophie Hasson, auto-entreprise.<br>
+        Hébergement : GitHub Pages<br>
+        Contact : via le formulaire ci-dessus
+      </p>
+    </div>
+  </div>
 
 </main>
 
@@ -1126,6 +1308,68 @@
       }
     }
   });
+
+  // Détection du sticky pour les h2 en mobile
+  if (window.innerWidth <= 768) {
+    const h2Elements = document.querySelectorAll('h2');
+    
+    const stickyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          // Quand le h2 atteint le top (sticky activé), entry.intersectionRatio < 1
+          if (entry.intersectionRatio < 1 && entry.boundingClientRect.top <= 1) {
+            entry.target.classList.add('is-sticky');
+          } else {
+            entry.target.classList.remove('is-sticky');
+          }
+        });
+      },
+      { 
+        threshold: [1],
+        rootMargin: '-1px 0px 0px 0px'
+      }
+    );
+
+    h2Elements.forEach(h2 => {
+      stickyObserver.observe(h2);
+    });
+
+    // Animation hero mobile : image s'efface et texte remonte
+    const heroMobile = document.querySelector('.hero-image-mobile');
+    if (heroMobile) {
+      const heroImg = heroMobile.querySelector('img');
+      const heroOverlay = heroMobile.querySelector('.hero-overlay');
+      
+      window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const heroHeight = heroMobile.offsetHeight;
+        
+        // Calculer le pourcentage de scroll (0 à 1)
+        const scrollPercent = Math.min(scrolled / (heroHeight * 0.5), 1);
+        
+        // Faire apparaître progressivement la bordure bleue (via pseudo-élément)
+        // On utilise un style CSS personnalisé
+        if (scrollPercent > 0.3) { // Commence à apparaître après 30% de scroll
+          heroMobile.style.setProperty('--border-scale', Math.min((scrollPercent - 0.3) / 0.7, 1));
+        } else {
+          heroMobile.style.setProperty('--border-scale', 0);
+        }
+        
+        // L'image reste fixe et opaque (pas de transparence)
+        if (heroImg) {
+          heroImg.style.transform = 'translateY(0)';
+          heroImg.style.opacity = 1;
+        }
+        
+        // Le texte descend lentement sans transparence (vitesse 0.5x)
+        if (heroOverlay) {
+          const translateY = scrolled * 0.5;
+          heroOverlay.style.transform = `translateY(${translateY}px)`;
+          heroOverlay.style.opacity = 1;
+        }
+      });
+    }
+  }
 </script>
 </body>
 </html>
